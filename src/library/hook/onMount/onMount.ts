@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export function onMount(callback: () => void | Promise<void>) {
+export function onMount(callback: () => void | (() => void)) {
 
   useEffect(() => {
 
