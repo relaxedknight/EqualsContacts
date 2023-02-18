@@ -1,6 +1,6 @@
 import { globalStyle } from '@vanilla-extract/css'
 
-import { variable } from './theme.css'
+import { themeClass, variable } from './theme.css'
 import './link.css'
 
 globalStyle(`html, body, div, span, object, iframe, h1, h2, h3, 
@@ -111,3 +111,5 @@ globalStyle('main', {
   overflow: 'hidden',
   padding: `0 ${variable.spacing.xl} calc(${variable.spacing.l} * 6)`
 })
+
+export { themeClass }

@@ -41,3 +41,5 @@ export const [themeClass, variable] = createTheme({
     xxl: '14px'
   }
 })
+
+import './reset.css'
