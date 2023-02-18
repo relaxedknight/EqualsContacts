@@ -1,7 +1,7 @@
 import { error } from '@library'
 
-import type { Schema } from './type'
-import { service } from './service'
+import type { Schema } from '../type'
+import { service } from '../service/service'
 
 export async function destroy(contact: Schema) {
   

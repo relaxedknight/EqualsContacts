@@ -3,7 +3,7 @@ import { contacts as contactsFixture } from '@fixture'
 import { guard } from '@library'
 
 import { all } from './all'
-import { service } from './service'
+import { service } from '../service/service'
 
 describe('lib/service/contacts/all', () => {
 

@@ -1,6 +1,6 @@
 import { endpoint } from '@library'
 
-import type { Schema } from './type'
+import type { Schema } from '../type'
 
 export const service = endpoint.build<Schema>({
   protocol: 'https',
