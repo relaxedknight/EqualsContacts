@@ -1,4 +1,5 @@
 export * as className from './className'
+export * as date from './date'
 export * as endpoint from './endpoint'
 export * as error from './error'
 export * as guard from './guard'
