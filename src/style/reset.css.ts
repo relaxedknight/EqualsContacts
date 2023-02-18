@@ -99,6 +99,10 @@ globalStyle('html, body', {
   overflow: 'hidden'
 })
 
+globalStyle('body', {
+  backgroundColor: variable.color.primary.background
+})
+
 globalStyle('#__next', {
   display: 'flex',
   flexDirection: 'column',
@@ -112,4 +116,4 @@ globalStyle('main', {
   padding: `0 ${variable.spacing.xl} calc(${variable.spacing.l} * 6)`
 })
 
-export { themeClass }
+export { themeClass, variable }
