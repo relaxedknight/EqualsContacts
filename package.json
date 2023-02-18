@@ -45,6 +45,7 @@
   },
   "jest": {
     "moduleNameMapper": {
+      "^@fixture": ["<rootDir>/fixture"],
       "^@library": ["<rootDir>/src/library"],
       "^@style/(.*)": ["<rootDir>/src/style/$1"],
       "woff2$": "<rootDir>/__mocks__/fileMock.ts"

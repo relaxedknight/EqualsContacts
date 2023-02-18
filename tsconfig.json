@@ -18,6 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {
+      "@fixture": ["fixture"],
       "@library": ["src/library"],
       "@style/*": ["src/style/*"]
     },
