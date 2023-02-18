@@ -1,0 +1,12 @@
+# Hidden Files
+.DS_Store
+
+# Hidden Folders
+.next/
+
+# Folders
+node_modules/
+
+# Files
+next-env.d.ts
+yarn-error.log
