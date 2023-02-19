@@ -16,9 +16,9 @@ export const [themeClass, variable] = createTheme({
       foreground: 'rgb(255, 185, 0)',
       background: 'rgb(9, 10, 24)'
     },
-    loading: {
-      foreground: 'rgb(239, 131, 136)',
-      background: 'rgba(128, 128, 128, .2)'
+    quarternary: {
+      foreground: 'rgb(255, 255, 255)',
+      background: 'rgb(72, 74, 88)'
     },
     error: {
       foreground: 'rgba(255, 0, 0, 0.75)',
@@ -29,6 +29,11 @@ export const [themeClass, variable] = createTheme({
     equals: {
       bold: font.EqualsBold,
       light: font.EqualsLight
+    },
+    size: {
+      s: '12px',
+      m: '14px',
+      l: '16px'
     }
   },
   spacing: {
