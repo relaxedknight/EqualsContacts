@@ -1,6 +1,6 @@
 import { contacts } from '@fixture'
 
-import { service } from './service/service'
+import { service } from './service'
 
 describe('lib/service/contacts/endpoint', () => {
 

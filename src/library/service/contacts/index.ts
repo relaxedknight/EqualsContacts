@@ -1,4 +1,5 @@
 export { all } from './all/all'
 export { create } from './create/create'
 export { destroy } from './destroy/destroy'
+export { service } from './service/service'
 export { update } from './update/update'
