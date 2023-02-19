@@ -4,6 +4,7 @@ import { variable } from '@style/theme.css'
 
 const common = {
   backgroundColor: variable.color.secondary.background,
+  border: 0,
   color: variable.color.secondary.foreground,
   cursor: 'pointer',
   fontFamily: variable.font.equals.bold,
@@ -23,7 +24,7 @@ const common = {
 export const container = {
   standard: style(common),
   thick: style([common, {
-    padding: `${variable.spacing.xl} ${variable.spacing.s}`,
+    padding: `${variable.spacing.l} ${variable.spacing.s}`,
   }])
 }
 
