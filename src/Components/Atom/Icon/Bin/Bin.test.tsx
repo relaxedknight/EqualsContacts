@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react'
 
 import { Bin } from './Bin'
-
 import * as style from './Bin.css'
 
 describe('Component/Atoms/Image/Variant/Bin', () => {
