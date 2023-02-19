@@ -6,4 +6,4 @@ export * as Icon from './Icon'
 export * as Input from './Input'
 export * as Link from './Link'
 export * as List from './List'
-
+export * as Text from './Text'
