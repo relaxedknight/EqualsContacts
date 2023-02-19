@@ -7,7 +7,7 @@ const pseudo = {
   content: '',
   display: 'block',
   height: 16,
-  marginBottom: variable.spacing.m,
+  margin: `0 auto ${variable.spacing.m}`,
   width: 56
 }
 

@@ -17,8 +17,8 @@ export const Logo: FunctionComponent<{
     className: className.format(prop.children.props.className, style.child)
   })
 
-  return <div className={className.format(style.container, prop.className?.container)}>
+  return <span className={className.format(style.container, prop.className?.container)}>
     <span className={className.format(style.text, prop.className?.text)}>{prop.text}</span>
     {child}
-  </div>
+  </span>
 }
