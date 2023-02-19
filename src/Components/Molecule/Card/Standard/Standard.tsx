@@ -8,7 +8,8 @@ import * as Type from './Standard.type'
 
 export const Standard: FunctionComponent<Type.Prop> = (prop) => {
 
-  return <div className={className.format(style.container)}>
+  return <div className={className.format(style.container)}
+    data-testId={prop.testId}>
     <header className={style.header}>
       {prop.header}
 

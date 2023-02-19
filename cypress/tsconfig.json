@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "paths": {
+      "@library": ["../library"],
+      "@fixture": ["../fixture"]
+    },
+    "types": ["cypress", "node"]
+  },
+  "include": [
+    "**/*.ts",
+  ]
+}

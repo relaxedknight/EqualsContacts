@@ -6,16 +6,11 @@ import type { Store } from '../type'
 
 export function store(): Store {
 
-  const [activeGetter, activeSetter] = useState<Store['active']['value']>(undefined)
   const [allGetter, allSetter] = useState<Store['all']['value']>([])
   const [editGetter, editSetter] = useState<Store['edit']['value']>(undefined)
   const [filterGetter, filterSetter] = useState<Store['filter']['value']>('')
 
   return {
-    active: {
-      value: activeGetter,
-      set: activeSetter
-    },
     all: {
       value: allGetter,
       set: (value) => {

@@ -3,10 +3,6 @@ import { createContext, useContext } from 'react'
 import type { Store } from '../type'
 
 const store: Store = {
-  active: {
-    value: undefined,
-    set: () => {}
-  },
   all: {
     value: [],
     set() {},

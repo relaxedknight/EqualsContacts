@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { Atom, Context } from '@Components'
+import { Atom, Context, Organism } from '@Components'
 import { hook } from '@library'
 
 import { themeClass } from '@style/reset.css'
@@ -22,7 +22,12 @@ export default function() {
 
     <main>
       <Context.Contacts.Load>
-
+        
+        <Atom.Board.Standard
+          header={<Organism.Contacts.Search />}
+          content={<Organism.Contacts.List />} 
+          footer={<Organism.Contacts.Form />}
+          testId='ContactsBoard'  />
       </Context.Contacts.Load>
     </main>
   </>

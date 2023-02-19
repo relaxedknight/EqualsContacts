@@ -1,5 +1,7 @@
 import type { FunctionComponent } from 'react'
+import { useState} from 'react'
 
+import type { ServiceType } from '@library'
 import { Atom, Context, Molecule } from '@Components'
 import { className, date, guard, service } from '@library'
 
@@ -8,9 +10,10 @@ import * as Type from './List.type'
 
 export const List: FunctionComponent<Type.Prop> = (prop) => {
 
-  const { active, all, edit } = Context.Contacts.context()
+  const { all, edit } = Context.Contacts.context()
+  const [open, setOpen] = useState<false | ServiceType.ContactsType.Schema['id']>(false)
 
-  const items = all.filter().map((contact) => {
+  const items = all.filter().map((contact, i) => {
 
     return <Molecule.Card.Standard
       header={<>
@@ -22,7 +25,7 @@ export const List: FunctionComponent<Type.Prop> = (prop) => {
         <Atom.Text.Standard
           className={style.name}>{contact.name}</Atom.Text.Standard>
       </>}
-      onView={() => active.set(contact.id === active.value ? undefined : contact.id)}
+      onView={() => setOpen(contact.id !== open && contact.id)}
       onEdit={() => edit.set(contact)}
       onDelete={async () => {
 
@@ -37,8 +40,9 @@ export const List: FunctionComponent<Type.Prop> = (prop) => {
         const contacts = all.value.filter((contact) => contact.id !== resp.data.id)
         
         all.set(contacts)
-      }}>
-        {active.value === contact.id && <>
+      }}
+      testId={`Contact${i}`}>
+        {open === contact.id && <>
           <Atom.Text.Standard className={style.info.container}>
             <Atom.Text.Standard 
               className={style.info.title} 

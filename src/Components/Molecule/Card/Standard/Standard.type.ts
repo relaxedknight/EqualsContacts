@@ -6,4 +6,5 @@ export type Prop = {
   onView: () => void
   onEdit: () => void
   onDelete: () => void
+  testId: string
 }
