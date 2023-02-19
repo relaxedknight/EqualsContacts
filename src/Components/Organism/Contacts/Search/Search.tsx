@@ -10,6 +10,7 @@ export const Search: FunctionComponent = () => {
 
   return <Atom.Input.Standard
     className={{
+      container: style.container,
       label: style.label,
       input: style.input
     }}
