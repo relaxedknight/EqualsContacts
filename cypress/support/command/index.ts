@@ -1,2 +1,3 @@
-import './appHasLoaded'
-import './getByTestId'
+import './app'
+import './Contact'
+import './get'

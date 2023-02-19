@@ -10,3 +10,4 @@ node_modules/
 # Files
 next-env.d.ts
 yarn-error.log
+*ts.mp4
