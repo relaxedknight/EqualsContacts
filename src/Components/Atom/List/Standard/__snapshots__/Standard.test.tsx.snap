@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/Atoms/List/Ordered items renders when items are JSX Elements 1`] = `
+<ul
+  class="Standard_container__1w14wn10"
+>
+  <li
+    class="Standard_item__1w14wn11"
+  >
+    <div>
+      Item 1
+    </div>
+  </li>
+  <li
+    class="Standard_item__1w14wn11"
+  >
+    <div>
+      Item 2
+    </div>
+  </li>
+  <li
+    class="Standard_item__1w14wn11"
+  >
+    <div>
+      Item 3
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Component/Atoms/List/Ordered items renders when items are mixed 1`] = `
+<ul
+  class="Standard_container__1w14wn10"
+>
+  <li
+    class="Standard_item__1w14wn11"
+  >
+    1
+  </li>
+  <li
+    class="Standard_item__1w14wn11"
+  >
+    <div>
+      Item 2
+    </div>
+  </li>
+  <li
+    class="Standard_item__1w14wn11"
+  >
+    3
+  </li>
+</ul>
+`;
+
+exports[`Component/Atoms/List/Ordered items renders when items are strings 1`] = `
+<ul
+  class="Standard_container__1w14wn10"
+>
+  <li
+    class="Standard_item__1w14wn11"
+  >
+    1
+  </li>
+  <li
+    class="Standard_item__1w14wn11"
+  >
+    2
+  </li>
+  <li
+    class="Standard_item__1w14wn11"
+  >
+    3
+  </li>
+</ul>
+`;
