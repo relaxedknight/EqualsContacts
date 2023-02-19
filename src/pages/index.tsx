@@ -1,5 +1,6 @@
 import Head from 'next/head'
 
+import { Atom, Context } from '@Components'
 import { hook } from '@library'
 
 import { themeClass } from '@style/reset.css'
@@ -14,5 +15,15 @@ export default function() {
     <Head>
       <title>Equals Contacts</title>
     </Head>
+
+    <Atom.Heading.Standard type='h1'>
+      <Atom.Icon.Logo text='Equals Contacts' />
+    </Atom.Heading.Standard>
+
+    <main>
+      <Context.Contacts.Load>
+
+      </Context.Contacts.Load>
+    </main>
   </>
 }
