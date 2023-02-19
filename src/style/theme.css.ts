@@ -1,6 +1,6 @@
 import { createTheme } from '@vanilla-extract/css'
 
-import * as font from './font'
+import * as font from './font.css'
 
 export const [themeClass, variable] = createTheme({
   color: {
@@ -35,9 +35,9 @@ export const [themeClass, variable] = createTheme({
     xxs: '2px',
     xs: '4px',
     s: '6px',
-    m: '8px',
-    l: '10px',
-    xl: '12px',
-    xxl: '14px'
+    m: '10px',
+    l: '16px',
+    xl: '26px',
+    xxl: '32px'
   }
 })
