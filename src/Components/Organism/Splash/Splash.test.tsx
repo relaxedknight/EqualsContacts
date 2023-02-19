@@ -12,7 +12,7 @@ describe('Components/Organism/Splash', () => {
     expect(splash).toHaveProperty('textContent', 'Content')
   })
 
-  it.only('renders nothing when the removed prop is true', async () => {
+  it('renders nothing when the removed prop is true', async () => {
 
     const screen = render(<Splash remove={false}>Content</Splash>)
     screen.rerender(<Splash remove={true}>Content</Splash>)
