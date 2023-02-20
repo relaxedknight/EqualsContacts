@@ -5,6 +5,7 @@ export * as error from './error'
 export * as guard from './guard'
 export * as hook from './hook'
 export * as listener from './listener'
+export * as phone from './phone'
 export * as service from './service'
 
 export * as ServiceType from './service/type'
