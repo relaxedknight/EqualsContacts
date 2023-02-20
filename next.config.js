@@ -13,7 +13,13 @@ const nextConfig = {
         hostname: '**'
       }
     ]
-  }
+  },
+  rewrites: async () => ([
+    {
+      source: '/:any*',
+      destination: '/',
+    }
+  ])
 };
 
 module.exports = withVanillaExtract(nextConfig);
