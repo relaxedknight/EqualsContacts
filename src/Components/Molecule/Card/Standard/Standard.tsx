@@ -19,7 +19,8 @@ export const Standard: FunctionComponent<Type.Prop> = (prop) => {
       {prop.header}
 
       <div 
-        className={hovering ? style.action.show : style.action.hidden}>
+        className={hovering ? style.action.show : style.action.hidden}
+        data-testid='CardStandardActions'>
 
         <Atom.Button.Icon 
           alt='View' 
