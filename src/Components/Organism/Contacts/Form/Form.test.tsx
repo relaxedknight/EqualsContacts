@@ -13,8 +13,6 @@ describe('Organism/Contacts/Form', () => {
     const screen = render(<Form />)
     const button = screen.getByTestId('Contact-Add-UpdateAddCreate')
 
-    screen.debug()
-
     const expected = {
       form: {
         className: style.container,

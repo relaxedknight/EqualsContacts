@@ -48,8 +48,6 @@ describe('Components/Organism/Contacts/List', () => {
       const screen = render(<ListWithProvider />)
       const listitems = screen.getAllByRole('listitem')
 
-      screen.debug()
-
       expect(listitems).toHaveLength(contacts.all.length)
     })
 
@@ -120,8 +118,6 @@ describe('Components/Organism/Contacts/List', () => {
           birthday: within(listitem.getByText('Birthday').parentElement),
           createdAt: within(listitem.getByText('Created at').parentElement)
         }
-
-        screen.debug()
 
         contact.birthday = date.build({
           date: contact.birthday
