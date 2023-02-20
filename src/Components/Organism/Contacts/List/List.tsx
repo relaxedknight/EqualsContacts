@@ -87,5 +87,6 @@ export const List: FunctionComponent<Type.Prop> = (prop) => {
   return <Atom.List.Standard
     className={className.format(style.container, prop.className)}
     items={items}
+    testId={'ContactsList'}
     type='ol' />
 }

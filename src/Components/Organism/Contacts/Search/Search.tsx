@@ -14,11 +14,11 @@ export const Search: FunctionComponent = () => {
       label: style.label,
       input: style.input
     }}
-    id='ContactSearch'
+    id='ContactsSearch'
     label='Search Contacts'
     onChange={(value) => contacts.filter.set(value)}
     placeholder='Search Contacts...'
     name='search'
-    testId='ContactSearch'
+    testId='ContactsSearch'
     type='text' />
 }

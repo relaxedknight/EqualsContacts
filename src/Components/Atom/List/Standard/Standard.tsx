@@ -1,4 +1,4 @@
-import type { FunctionComponent, ReactNode } from 'react'
+import type { FunctionComponent } from 'react'
 
 import { className } from '@library'
 
@@ -9,7 +9,9 @@ export const Standard: FunctionComponent<Type.Prop> = (prop) => {
 
   const List = 'ul'
 
-  return <List className={className.format(style.container, prop.className)}>
+  return <List 
+    className={className.format(style.container, prop.className)}
+    data-testid={prop.testId}>
     {prop.items.map((item, i) => {
 
       return <li

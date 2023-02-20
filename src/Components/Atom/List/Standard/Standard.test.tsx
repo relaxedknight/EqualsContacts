@@ -10,6 +10,7 @@ const prop: Type.Prop = {
     'Item 2',
     'Item 3'
   ],
+  testId: 'Standard',
   type: 'ul'
 }
 
