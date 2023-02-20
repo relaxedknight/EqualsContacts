@@ -1,4 +1,5 @@
 import type { FunctionComponent } from 'react'
+import { useState } from 'react'
 
 import { Atom } from '@Components'
 import { className} from '@library'
@@ -8,12 +9,17 @@ import * as Type from './Standard.type'
 
 export const Standard: FunctionComponent<Type.Prop> = (prop) => {
 
+  const [hovering, setHovering] = useState(false)
+
   return <div className={className.format(style.container)}
     data-testId={prop.testId}>
-    <header className={style.header}>
+    <header className={style.header}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}>
       {prop.header}
 
-      <div className={style.action}>
+      <div 
+        className={hovering ? style.action.show : style.action.hidden}>
 
         <Atom.Button.Icon 
           alt='View' 
