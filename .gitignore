@@ -5,9 +5,10 @@
 .next/
 
 # Folders
+cypress/screenshots/
+cypress/videos/
 node_modules/
 
 # Files
 next-env.d.ts
 yarn-error.log
-*ts.mp4
