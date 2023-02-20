@@ -54,6 +54,7 @@ describe('AddContact', () => {
       expect(request.headers).to.deep.include({
         'content-type': 'application/json'
       })
+
       expect(requestBody).to.deep.equal({
         birthday: new Date(contact.birthday).toISOString(),
         name: contact.name,
@@ -61,15 +62,19 @@ describe('AddContact', () => {
         email: contact.email,
         phone: contact.phone
       })
+      
       expect(requestCreatedAt).to.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/)
 
       expect(response.headers).to.deep.include({
         'content-type': 'application/json'
       })
+
       expect(response.body).to.deep.equal(contact)
 
-      cy['assert/Contact/CardHeader'](`Contact${contacts.all.length}`, 'single')
-      cy['assert/Contact/CardDetail'](`Contact${contacts.all.length}`, 'single')
+      cy['assert/Contact/Card']({
+        contact,
+        testId: `Contact${contacts.all.length}`
+      })
     })
   })
 })

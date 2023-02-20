@@ -1,8 +1,10 @@
+import type { ServiceType } from '@library'
 import { contacts } from '@fixture'
 
-Cypress.Commands.add('assert/Contact/CardHeader', (testId, index) => {
-
-  const contact = index === 'single' ? contacts.single : contacts.all[index]
+Cypress.Commands.add('assert/Contact/CardHeader', ({ contact, testId }: {
+  contact: ServiceType.ContactsType.Schema
+  testId: string
+}) => {
 
   cy['get/byTestId'](testId)
     .find(`img[alt="${contact.name}"]`)

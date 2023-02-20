@@ -12,7 +12,7 @@ export const Standard: FunctionComponent<Type.Prop> = (prop) => {
   const [hovering, setHovering] = useState(false)
 
   return <div className={className.format(style.container)}
-    data-testId={prop.testId}>
+    data-testid={prop.testId}>
     <header className={style.header}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}>

@@ -1,9 +1,10 @@
-import { contacts } from '@fixture'
+import type { ServiceType } from '@library'
 import { date, phone } from '@library'
 
-Cypress.Commands.add('assert/Contact/CardDetail', (testId, index) => {
-
-  const contact = index === 'single' ? contacts.single : contacts.all[index]
+Cypress.Commands.add('assert/Contact/CardDetail', ({ contact, testId }: {
+  contact: ServiceType.ContactsType.Schema
+  testId: string
+}) => {
 
   contact.phone = phone.format(contact.phone)
 
