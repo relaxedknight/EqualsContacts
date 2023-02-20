@@ -43,6 +43,7 @@ export const List: FunctionComponent<Type.Prop> = (prop) => {
         const contacts = all.value.filter((contact) => contact.id !== resp.data.id)
         
         all.set(contacts)
+        edit.set()
       }}
       testId={`Contact${i}`}>
         {open === contact.id && <>
