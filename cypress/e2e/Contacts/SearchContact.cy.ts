@@ -8,7 +8,7 @@ const searchable = contacts.all.map(({ id: _, ...contact }) => ({
   }).format('{day}/{month}/{year} {hour}:{minute}'),
   birthday: date.build({
     date: contact.birthday
-  }).format('{day}/{month}/{year} {hour}:{minute}'),
+  }).format('{day}/{month}/{year}'),
   phone: phone.format(contact.phone)
 }))
 
