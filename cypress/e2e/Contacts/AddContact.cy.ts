@@ -5,11 +5,55 @@ describe('AddContact', () => {
   beforeEach(() => {
 
     cy['app/hasLoaded']()
+    cy['get/byTestId']('Contact-Add-UpdateAddCreate').click()
+  })
+
+  it('validates the form', () => {
+
+    cy['get/byTestId']('ContactName').within(() => {
+      cy.get('input').invoke('removeAttr', 'required')
+    })
+    cy['get/byTestId']('ContactBirthday').within(() => {
+      cy.get('input').invoke('removeAttr', 'required')
+    })
+    cy['get/byTestId']('ContactAvatar').within(() => {
+      cy.get('input').invoke('removeAttr', 'required')
+    })
+    cy['get/byTestId']('ContactEmail').within(() => {
+      cy.get('input').invoke('removeAttr', 'required')
+    })
+    cy['get/byTestId']('ContactPhone').within(() => {
+      cy.get('input').invoke('removeAttr', 'required')
+    })
+
+    cy['get/byTestId']('Contact-Add-UpdateAddCreate').click()
+
+    cy['get/byTestId']('ContactName').contains('Name is required')
+    cy['get/byTestId']('ContactBirthday').contains('A date of birth is required')
+    cy['get/byTestId']('ContactAvatar').contains('An Avatar URL is required')
+    cy['get/byTestId']('ContactEmail').contains('An email is required')
+    cy['get/byTestId']('ContactPhone').contains('A phone number is required')
+
+    cy['get/byTestId']('ContactBirthday').within(() => {
+      cy.get('input').type(date.build({
+        date: new Date()
+      }).format('{year}-{month}-{day}'))
+    }).contains('Date of birth must be in the past')
+
+    cy['get/byTestId']('ContactAvatar').within(() => {
+      cy.get('input').type('Not a URL')
+    }).contains('Must be a .jpg image')
+
+    cy['get/byTestId']('ContactEmail').within(() => {
+      cy.get('input').type('Not an email address')
+    }).contains('Not a valid email')
+
+    cy['get/byTestId']('ContactPhone').within(() => {
+      cy.get('input').type('Not a phone number')
+    }).contains('Phone number must be in the correct format')
   })
 
   it('adds a contact successfully', () => {
-
-    cy['get/byTestId']('Contact-Add-UpdateAddCreate').click()
 
     const contact = contacts.single
 

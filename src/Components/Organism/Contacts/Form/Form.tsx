@@ -44,16 +44,10 @@ export const Form: FunctionComponent = () => {
     className={style.container} 
     onSubmit={form.handleSubmit(async (data) => {
 
-      const { dob: birthday, ...rest } = data
-      const payload = {
-        ...rest,
-        birthday
-      }
-
       const resp = contacts.edit.value ? await service.contacts.update({
         id: contacts.edit.value.id,
-        ...payload
-      }) : await service.contacts.create(payload)
+        ...data
+      }) : await service.contacts.create(data)
 
       if (guard.isError(resp)) {
 
