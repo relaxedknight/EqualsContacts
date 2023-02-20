@@ -24,7 +24,7 @@ describe('Components/Organism/Contacts/Search', () => {
     </Context.Contacts.Provider>
   }
 
-  it.only('renders with the correct attributes', () => {
+  it('renders with the correct attributes', () => {
 
     const screen = render(<Component />)
     const container = screen.getByTestId('ContactsSearch')
