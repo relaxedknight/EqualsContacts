@@ -1,5 +1,7 @@
 Cypress.Commands.add('app/hasLoaded', () => {
 
+  cy['interceptor/Contact/Get']()
+
   cy.visit('http://localhost:3000')
 
   cy['get/byTestId']('Splash').should('be.visible')

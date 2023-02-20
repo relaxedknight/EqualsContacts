@@ -19,12 +19,7 @@ describe('AddContact', () => {
 
     contact.phone = contact.phone.match(/\d{3}.\d{3}.\d{4}/)[0]
 
-    cy.intercept({
-      method: 'POST',
-      url: '/api/v1/contacts',
-    }, {
-      body: contact
-    }).as('AddedContact')
+    cy['interceptor/Contact/Post'](contact)
 
     cy['get/byTestId']('ContactName').within(() => {
       cy.get('input').type(contact.name)
@@ -47,7 +42,7 @@ describe('AddContact', () => {
     })
 
     cy['get/byTestId']('Contact-Add-UpdateAddCreate').click()
-    cy.wait('@AddedContact').then(({ request, response }) => {
+    cy.wait('@POSTContact').then(({ request, response }) => {
 
       const { createdAt: requestCreatedAt, ...requestBody } = request.body
 

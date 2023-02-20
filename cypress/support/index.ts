@@ -16,5 +16,9 @@ declare namespace Cypress {
       contact: Record<string, unknown>
       testId: string
     }): void
+    ['interceptor/Contact/Delete'](body: Record<string, unknown>): void
+    ['interceptor/Contact/Get'](): void
+    ['interceptor/Contact/Post'](body: Record<string, unknown>): void
+    ['interceptor/Contact/Put'](body: Record<string, unknown>): void
   }
 }

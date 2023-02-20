@@ -1,6 +1,6 @@
 import { contacts } from '@fixture'
 
-beforeEach(() => {
+Cypress.Commands.add('interceptor/Contact/Get', () => {
 
   cy.intercept({
     method: 'GET',
