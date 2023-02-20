@@ -18,7 +18,7 @@ Cypress.Commands.add('assert/Contact/CardDetail', ({ contact, testId }: {
     cy.contains('Email')
       .next()
       .contains(contact.email)
-      .should('have.attr', 'href', contact.email)
+      .should('have.attr', 'href', `mailto:${contact.email}`)
       .should('have.attr', 'title', `Email ${contact.name}`)
 
     cy.contains('Phone')
