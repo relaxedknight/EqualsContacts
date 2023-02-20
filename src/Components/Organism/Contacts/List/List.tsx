@@ -3,7 +3,7 @@ import { useState} from 'react'
 
 import type { ServiceType } from '@library'
 import { Atom, Context, Molecule } from '@Components'
-import { className, date, guard, service } from '@library'
+import { className, date, guard, phone, service } from '@library'
 
 import * as style from './List.css'
 import * as Type from './List.type'
@@ -14,6 +14,8 @@ export const List: FunctionComponent<Type.Prop> = (prop) => {
   const [open, setOpen] = useState<false | ServiceType.ContactsType.Schema['id']>(false)
 
   const items = all.filter().map((contact, i) => {
+
+    contact.phone = phone.format(contact.phone)
 
     return <Molecule.Card.Standard
       header={<>
