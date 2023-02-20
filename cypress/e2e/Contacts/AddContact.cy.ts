@@ -1,5 +1,4 @@
 import { contacts } from '@fixture'
-
 import { date } from '@library'
 
 describe('AddContact', () => {
@@ -69,7 +68,8 @@ describe('AddContact', () => {
       })
       expect(response.body).to.deep.equal(contact)
 
-      cy['assertContact/CardHeader'](`Contact${contacts.all.length}`, 'single')
+      cy['assert/Contact/CardHeader'](`Contact${contacts.all.length}`, 'single')
+      cy['assert/Contact/CardDetail'](`Contact${contacts.all.length}`, 'single')
     })
   })
 })

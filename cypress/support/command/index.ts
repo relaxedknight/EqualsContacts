@@ -1,3 +1,3 @@
 import './app'
-import './Contact'
+import './assert'
 import './get'

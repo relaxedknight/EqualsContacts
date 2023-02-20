@@ -1,6 +1,6 @@
 import { contacts } from '@fixture'
 
-Cypress.Commands.add('assertContact/CardHeader', (testId, index) => {
+Cypress.Commands.add('assert/Contact/CardHeader', (testId, index) => {
 
   const contact = index === 'single' ? contacts.single : contacts.all[index]
 

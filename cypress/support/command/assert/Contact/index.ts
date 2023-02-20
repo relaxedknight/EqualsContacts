@@ -1,1 +1,2 @@
+import './CardDetail'
 import './CardHeader'

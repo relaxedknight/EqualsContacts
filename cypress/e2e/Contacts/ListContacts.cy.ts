@@ -12,7 +12,8 @@ describe('AddContact', () => {
 
     contacts.all.forEach((contact, i) => {
 
-      cy['assertContact/CardHeader'](`Contact${i}`, i)
+      cy['assert/Contact/CardHeader'](`Contact${i}`, i)
+      cy['assert/Contact/CardDetail'](`Contact${i}`, i)
     })
   })
 })
