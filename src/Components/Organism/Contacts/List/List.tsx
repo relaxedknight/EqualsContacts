@@ -25,7 +25,8 @@ export const List: FunctionComponent<Type.Prop> = (prop) => {
           src={contact.avatar} />
 
         <Atom.Text.Standard
-          className={style.name}>{contact.name}</Atom.Text.Standard>
+          className={style.name}
+          type='span'>{contact.name}</Atom.Text.Standard>
       </>}
       onView={() => setOpen(contact.id !== open && contact.id)}
       onEdit={() => edit.set(contact)}
