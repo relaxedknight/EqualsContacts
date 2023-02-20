@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { date } from '@library'
+import { date, phone } from '@library'
 
 import type { Store } from '../type'
 
@@ -28,11 +28,8 @@ export function store(): Store {
         ])
       },
       filter: () => {
-  
+
         const regex = new RegExp(filterGetter, 'i')
-        const format = {
-          date: '{day}/{month}/{year} {hour}:{minute}'
-        }
   
         return allGetter.filter((contact) => {
   
@@ -40,10 +37,11 @@ export function store(): Store {
             ...contact,
             birthday: date.build({
               date: contact.birthday
-            })?.format(format.date),
+            })?.format('{day}/{month}/{year}'),
             createdAt: date.build({
               date: contact.createdAt
-            })?.format(format.date)
+            })?.format('{day}/{month}/{year} {hour}:{minute}'),
+            phone: phone.format(contact.phone)
           }
   
           return Object.values(test).find((value) => {
