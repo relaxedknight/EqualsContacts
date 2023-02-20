@@ -6,6 +6,7 @@ export default defineConfig({
       // implement node event listeners here
     },
   },
+  fixturesFolder: './fixture',
   screenshotOnRunFailure: true,
   video: false
 });
