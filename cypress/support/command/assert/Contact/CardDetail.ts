@@ -30,7 +30,7 @@ Cypress.Commands.add('assert/Contact/CardDetail', ({ contact, testId }: {
     cy.contains('Birthday')
       .next()
       .should('have.text', date.build({
-        date: contact.dob
+        date: contact.birthday
       }).format('{day}/{month}/{year}'))
 
     cy.contains('Created at')
