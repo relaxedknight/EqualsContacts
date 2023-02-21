@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import { date, phone } from '@library'
 
@@ -27,7 +27,7 @@ export function store(): Store {
           value
         ])
       },
-      filter: () => {
+      filtered: useMemo(() => {
 
         const regex = new RegExp(filterGetter, 'i')
   
@@ -49,7 +49,7 @@ export function store(): Store {
             return value && regex.test(value)
           })
         })
-      }
+      }, [allGetter, filterGetter])
     },
     edit: {
       value: editGetter,

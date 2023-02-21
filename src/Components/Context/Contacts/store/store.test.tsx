@@ -94,7 +94,7 @@ describe('Components/Context/Contacts/store', () => {
             contacts.all.set(fixture.all)
           })
         
-          return <div onClick={() => mock.onFilter(contacts.all.filter())}>Click</div>
+          return <div onClick={() => mock.onFilter(contacts.all.filtered)}>Click</div>
         }
 
         const screen = render(<Component />)
@@ -117,7 +117,7 @@ describe('Components/Context/Contacts/store', () => {
             contacts.filter.set(fixture.all[0].name)
           })
         
-          return <div onClick={() => mock.onFilter(contacts.all.filter())}>Click</div>
+          return <div onClick={() => mock.onFilter(contacts.all.filtered)}>Click</div>
         }
 
         const element = render(<Component />).getByText('Click')

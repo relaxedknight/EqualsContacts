@@ -1,5 +1,6 @@
-import { act, render, waitFor } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 
+import { contacts } from '@fixture'
 import { service } from '@library'
 
 import { Load } from './Load'
@@ -59,7 +60,7 @@ describe('Context/Contacts/Load', () => {
       it('removes the splash when contacts are retrieved', async () => {
 
         global.fetch = jest.fn().mockResolvedValue({
-          json: jest.fn().mockResolvedValue([{}])
+          json: jest.fn().mockResolvedValue(contacts.all)
         })
   
         const screen = render(<Load>Text</Load>)

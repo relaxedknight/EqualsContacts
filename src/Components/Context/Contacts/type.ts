@@ -4,7 +4,7 @@ export type Store = {
   all: {
     value: ServiceType.ContactsType.Schema[],
     set(value: ServiceType.ContactsType.Schema[] | ServiceType.ContactsType.Schema): void
-    filter(): ServiceType.ContactsType.Schema[]
+    filtered: ServiceType.ContactsType.Schema[]
   }
   edit: {
     value?: ServiceType.ContactsType.Schema

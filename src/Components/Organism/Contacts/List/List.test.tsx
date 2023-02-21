@@ -36,7 +36,7 @@ describe('Components/Organism/Contacts/List', () => {
         ...store,
         all: {
           ...store.all,
-          filter: () => contacts.all
+          filtered: contacts.all
         }
       }}>
         <List />

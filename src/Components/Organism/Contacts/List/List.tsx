@@ -1,5 +1,5 @@
 import type { FunctionComponent } from 'react'
-import { useState} from 'react'
+import { useMemo, useState } from 'react'
 
 import type { ServiceType } from '@library'
 import { Atom, Context, Molecule } from '@Components'
@@ -13,7 +13,7 @@ export const List: FunctionComponent<Type.Prop> = (prop) => {
   const { all, edit } = Context.Contacts.context()
   const [open, setOpen] = useState<false | ServiceType.ContactsType.Schema['id']>(false)
 
-  const items = all.filter().map((contact, i) => {
+  const items = all.filtered.map((contact, i) => {
 
     contact.phone = phone.format(contact.phone)
 

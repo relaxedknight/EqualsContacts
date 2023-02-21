@@ -6,7 +6,7 @@ const store: Store = {
   all: {
     value: [],
     set() {},
-    filter: () => []
+    filtered: []
   },
   edit: {
     value: undefined,
