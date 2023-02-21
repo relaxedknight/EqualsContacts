@@ -1,7 +1,8 @@
 import { fireEvent, render, waitFor } from '@testing-library/react'
 
+import type { ServiceType } from '@library'
 import { contacts as fixture } from '@fixture'
-import { hook } from '@library'
+import { date, hook } from '@library'
 
 import { store } from './store'
 
@@ -80,7 +81,7 @@ describe('Components/Context/Contacts/store', () => {
         expect(mock.onSet).toHaveBeenCalledWith([fixture.single])
       })
     })
-
+    
     describe('state - filter', () => {
 
       it('returns all the contacts if filter value is an empty string', () => {
@@ -105,26 +106,43 @@ describe('Components/Context/Contacts/store', () => {
         expect(mock.onFilter).toHaveBeenCalledWith(fixture.all)
       })
 
-      it('returns the filtered contacts if filter value is a string', () => {
+      it.each<ServiceType.ContactsType.Schema>(fixture.all)('sets the filtered contacts if filter value is set', (contact) => {
 
-        const Component = () => {
+        Object.values({
+          name: contact.name,
+          birthday: date.build({
+            date: contact.birthday
+          }).format('{day}/{month}/{year}'),
+          createdAt: date.build({
+            date: contact.createdAt
+          }).format('{day}/{month}/{year} {hour}:{minute}'),
+          avatar: contact.avatar,
+          email: contact.email,
+          phone: contact.phone
+        }).forEach((value) => {
 
-          const contacts = store()
+          const Component = () => {
 
-          hook.onMount(() => {
+            const contacts = store()
+  
+            hook.onMount(() => {
+  
+              contacts.all.set(fixture.all)
+              contacts.filter.set(value)
+            })
+          
+            return <div onClick={() => mock.onFilter(contacts.all.filtered)}>Click</div>
+          }
+  
+          const screen = render(<Component />)
+          const element = screen.getByText('Click')
+  
+          fireEvent.click(element)
+  
+          expect(mock.onFilter).toHaveBeenCalledWith([contact])
 
-            contacts.all.set(fixture.all)
-            contacts.filter.set(fixture.all[0].name)
-          })
-        
-          return <div onClick={() => mock.onFilter(contacts.all.filtered)}>Click</div>
-        }
-
-        const element = render(<Component />).getByText('Click')
-
-        fireEvent.click(element)
-
-        expect(mock.onFilter).toHaveBeenCalledWith(fixture.all.slice(0, 1))
+          screen.unmount()
+        })
       })
     })
   })
