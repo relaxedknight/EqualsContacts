@@ -6,5 +6,6 @@ export const image = style({
   alignItems: 'center',
   display: 'flex',
   fontSize: variable.font.size.s,
+  objectFit: 'cover',
   justifyContent: 'center'
 })
