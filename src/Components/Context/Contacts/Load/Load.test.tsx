@@ -1,4 +1,4 @@
-import { render, waitFor } from '@testing-library/react'
+import { act, render, waitFor } from '@testing-library/react'
 
 import { service } from '@library'
 
@@ -6,20 +6,23 @@ import { Load } from './Load'
 
 describe('Context/Contacts/Load', () => {
 
-  it('renders the splash', () => {
+  it('renders the splash', async () => {
 
     const screen = render(<Load>Text</Load>)
     
-    screen.getByTestId('Splash')
-    screen.getByText('Equals Contacts')
-    screen.getByText('Loading...')
+    await waitFor(() => {
+
+      screen.getByTestId('Splash')
+      screen.getByText('Equals Contacts')
+      screen.getByText('Loading...')
+    })
   })
 
   describe('onMount', () => {
 
     describe('contacts service all request', () => {
 
-      it('is called', () => {
+      it('is called', async () => {
 
         global.fetch = jest.fn()
   
@@ -33,10 +36,27 @@ describe('Context/Contacts/Load', () => {
           }
         }
   
-        expect(global.fetch).toHaveBeenCalledWith(service.contacts.service.url, expected.request)
+        await waitFor(() => {
+
+          expect(global.fetch).toHaveBeenCalledWith(service.contacts.service.url, expected.request)
+        })
+      })
+
+      it("renders an error message when contacts can't be retrieved", async () => {
+
+        global.fetch = jest.fn()
+  
+        const screen = render(<Load>Text</Load>)
+
+        await waitFor(() => {
+          
+          const error = screen.queryByText('There was an issue retrieving the contacts')
+
+          expect(error).toBeDefined()
+        })
       })
       
-      it('removes the splash', async () => {
+      it('removes the splash when contacts are retrieved', async () => {
 
         global.fetch = jest.fn().mockResolvedValue({
           json: jest.fn().mockResolvedValue([{}])

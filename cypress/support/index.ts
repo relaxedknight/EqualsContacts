@@ -22,7 +22,9 @@ declare namespace Cypress {
       intercerptorBody?: Record<string, unknown> | null
     }): void
     ['interceptor/Contact/Delete'](body: Record<string, unknown>): void
-    ['interceptor/Contact/Get'](): void
+    ['interceptor/Contact/Get'](option?: {
+      interceptorBody?: Record<string, unknown> | null
+    }): void
     ['interceptor/Contact/Post'](body?: Record<string, unknown>): void
     ['interceptor/Contact/Put'](body: Record<string, unknown>): void
   }

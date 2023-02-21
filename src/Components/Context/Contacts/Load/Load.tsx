@@ -13,6 +13,7 @@ export const Load: FunctionComponent<{
 }> = (prop) => {
 
   const contacts = store()
+  const [error, setError] = useState('')
 
   hook.onMount(() => {
 
@@ -22,7 +23,8 @@ export const Load: FunctionComponent<{
 
       if (guard.isError(resp)) {
 
-        // handle error
+        setError(resp.message)
+
         return
       }
 
@@ -37,7 +39,10 @@ export const Load: FunctionComponent<{
         <Atom.Icon.Logo className={{
           container: style.container
         }} text='Equals Contacts'>
-          <Atom.Animation.Bar className={style.bar}>Loading...</Atom.Animation.Bar>
+          {!error ? 
+            <Atom.Animation.Bar className={style.bar}>Loading...</Atom.Animation.Bar> : 
+            <Atom.Text.Error>{error}</Atom.Text.Error>
+          }
         </Atom.Icon.Logo>
       </Organism.Splash>
 
