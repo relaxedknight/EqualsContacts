@@ -3,6 +3,7 @@
 exports[`Component/Atoms/List/Ordered items renders when items are JSX Elements 1`] = `
 <ul
   class="Standard_container__1w14wn10"
+  data-testid="Standard"
 >
   <li
     class="Standard_item__1w14wn11"
@@ -31,6 +32,7 @@ exports[`Component/Atoms/List/Ordered items renders when items are JSX Elements 
 exports[`Component/Atoms/List/Ordered items renders when items are mixed 1`] = `
 <ul
   class="Standard_container__1w14wn10"
+  data-testid="Standard"
 >
   <li
     class="Standard_item__1w14wn11"
@@ -55,6 +57,7 @@ exports[`Component/Atoms/List/Ordered items renders when items are mixed 1`] = `
 exports[`Component/Atoms/List/Ordered items renders when items are strings 1`] = `
 <ul
   class="Standard_container__1w14wn10"
+  data-testid="Standard"
 >
   <li
     class="Standard_item__1w14wn11"
