@@ -18,8 +18,8 @@ export async function all(): Promise<{
       data: json
     }
 
-  } catch (e) {
+  } catch (_) {
 
-    return error.handle(e)
+    return error.handle('There was an issue retrieving the contacts')
   }
 }

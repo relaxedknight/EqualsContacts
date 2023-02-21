@@ -26,8 +26,8 @@ export async function update(contact: Pick<Schema, 'id'> & {
       data: json
     }
 
-  } catch (e) {
+  } catch (_) {
 
-    return error.handle(e)
+    return error.handle('There was an issue updating the contact')
   }
 }

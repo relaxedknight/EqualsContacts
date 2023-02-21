@@ -30,8 +30,8 @@ export async function create({
       data: await resp.json()
     }
 
-  } catch (e) {
+  } catch (_) {
 
-    return error.handle(e)
+    return error.handle('There was an issue creating the contact')
   }
 }
