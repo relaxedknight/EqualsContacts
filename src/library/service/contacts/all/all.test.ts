@@ -42,7 +42,7 @@ describe('lib/service/contacts/all', () => {
 
   it('returns an error object when unsuccessful', async () => {
 
-    const error = new Error('Could not connect to the resource')
+    const error = new Error('There was an issue retrieving the contacts')
 
     global.fetch = jest.fn().mockResolvedValue({
       json: jest.fn().mockRejectedValue(error)

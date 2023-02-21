@@ -37,7 +37,7 @@ describe('lib/service/contacts/destroy', () => {
 
   it('returns an error object when unsuccessful', async () => {
 
-    const error = new Error('There was an issue destroying the contact')
+    const error = new Error('There was an issue deleting the contact')
 
     global.fetch = jest.fn().mockRejectedValue(error)
 

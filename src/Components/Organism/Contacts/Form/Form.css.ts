@@ -14,6 +14,11 @@ export const container = style({
   flexWrap: 'wrap'
 })
 
+export const error = style({
+  textAlign: 'center',
+  width: '100%'
+})
+
 export const field = {
   half: style([common.field, {
     width: '50%',

@@ -16,9 +16,14 @@ declare namespace Cypress {
       contact: Record<string, unknown>
       testId: string
     }): void
+    ['fill/form/contact'](input: {
+      contact: Record<string, unknown>
+    }, option?: {
+      intercerptorBody?: Record<string, unknown> | null
+    }): void
     ['interceptor/Contact/Delete'](body: Record<string, unknown>): void
     ['interceptor/Contact/Get'](): void
-    ['interceptor/Contact/Post'](body: Record<string, unknown>): void
+    ['interceptor/Contact/Post'](body?: Record<string, unknown>): void
     ['interceptor/Contact/Put'](body: Record<string, unknown>): void
   }
 }

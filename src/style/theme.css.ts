@@ -21,7 +21,7 @@ export const [themeClass, variable] = createTheme({
       background: 'rgb(72, 74, 88)'
     },
     error: {
-      foreground: 'rgb(255, 185, 0)',
+      foreground: 'rgb(255, 0, 0)',
       background: 'rgba(255, 0, 0, 0.75)'
     }
   },

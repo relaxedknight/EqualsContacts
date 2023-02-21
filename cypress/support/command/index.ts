@@ -1,4 +1,5 @@
 import './app'
 import './assert'
+import './fill'
 import './interceptor'
 import './get'

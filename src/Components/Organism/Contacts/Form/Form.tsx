@@ -9,6 +9,7 @@ import * as style from './Form.css'
 
 export const Form: FunctionComponent = () => {
 
+  const [formError, setFormError] = useState('')
   const [open, setOpen] = useState(false)
   const contacts = Context.Contacts.context()
 
@@ -51,7 +52,7 @@ export const Form: FunctionComponent = () => {
 
       if (guard.isError(resp)) {
 
-        // Handle Error
+        setFormError(resp.message)
 
         return
       }
@@ -171,10 +172,17 @@ export const Form: FunctionComponent = () => {
         
         </>}
 
+        {formError && <Atom.Text.Error
+          className={style.error}>{formError}</Atom.Text.Error>}
+
         <Atom.Button.Action
           className={style.button.submit}
           style={'thick'}
-          onMouseDown={() => setOpen(true)}
+          onMouseDown={() => {
+
+            setFormError('')
+            !open && setOpen(true)
+          }}
           testId='Contact-Add-UpdateAddCreate'
           type={open ? 'submit' : 'button'}>
             {open ? contacts.edit.value ? 'Update' : 'Add' : 'Create'}
@@ -186,7 +194,7 @@ export const Form: FunctionComponent = () => {
 
             contacts.edit.set()
             form.reset({})
-            // setRequestError(0)
+            setFormError('')
             setOpen(false)
           }}
           style={'thick'}

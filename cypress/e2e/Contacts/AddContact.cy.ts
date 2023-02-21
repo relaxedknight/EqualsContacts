@@ -1,5 +1,5 @@
 import { contacts } from '@fixture'
-import { date } from '@library'
+import { date, phone } from '@library'
 
 describe('AddContact', () => {
   beforeEach(() => {
@@ -8,23 +8,21 @@ describe('AddContact', () => {
     cy['get/byTestId']('Contact-Add-UpdateAddCreate').click()
   })
 
-  it('validates the form', () => {
+  it('renders an message if the request fails', () => {
 
-    cy['get/byTestId']('ContactName').within(() => {
-      cy.get('input').invoke('removeAttr', 'required')
+    cy['fill/form/contact']({
+      contact: contacts.single
+    }, {
+      intercerptorBody: null
     })
-    cy['get/byTestId']('ContactBirthday').within(() => {
-      cy.get('input').invoke('removeAttr', 'required')
-    })
-    cy['get/byTestId']('ContactAvatar').within(() => {
-      cy.get('input').invoke('removeAttr', 'required')
-    })
-    cy['get/byTestId']('ContactEmail').within(() => {
-      cy.get('input').invoke('removeAttr', 'required')
-    })
-    cy['get/byTestId']('ContactPhone').within(() => {
-      cy.get('input').invoke('removeAttr', 'required')
-    })
+
+    cy['interceptor/Contact/Post']()
+    cy['get/byTestId']('Contact-Add-UpdateAddCreate').click()
+
+    cy.contains('There was an issue creating the contact')
+  })
+
+  it('validates the form', () => {
 
     cy['get/byTestId']('Contact-Add-UpdateAddCreate').click()
 
@@ -63,29 +61,11 @@ describe('AddContact', () => {
 
     contact.phone = contact.phone.match(/\d{3}.\d{3}.\d{4}/)[0]
 
+    cy['fill/form/contact']({ contact })
+
     cy['interceptor/Contact/Post'](contact)
-
-    cy['get/byTestId']('ContactName').within(() => {
-      cy.get('input').type(contact.name)
-    })
-
-    cy['get/byTestId']('ContactBirthday').within(() => {
-      cy.get('input').type(contact.birthday)
-    })
-
-    cy['get/byTestId']('ContactAvatar').within(() => {
-      cy.get('input').type(contact.avatar)
-    })
-
-    cy['get/byTestId']('ContactEmail').within(() => {
-      cy.get('input').type(contact.email)
-    })
-
-    cy['get/byTestId']('ContactPhone').within(() => {
-      cy.get('input').type(contact.phone)
-    })
-
     cy['get/byTestId']('Contact-Add-UpdateAddCreate').click()
+    
     cy.wait('@POSTContact').then(({ request, response }) => {
 
       const { createdAt: requestCreatedAt, ...requestBody } = request.body
@@ -99,7 +79,7 @@ describe('AddContact', () => {
         name: contact.name,
         avatar: contact.avatar,
         email: contact.email,
-        phone: contact.phone
+        phone: phone.format(contact.phone)
       })
       
       expect(requestCreatedAt).to.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/)
